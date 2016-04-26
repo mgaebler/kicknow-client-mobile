@@ -6,7 +6,9 @@ import React, {
   TextInput,
   TouchableHighlight,
   View,
-} from 'react-native'
+} from 'react-native';
+
+import { STYLES } from '../base_styles';
 
 
 class PlaceForm extends Component {
@@ -14,7 +16,8 @@ class PlaceForm extends Component {
     super(props, context);
 
     this.state = {
-      place: ''
+      place: '',
+      valid: false,
     }
   }
   render() {
@@ -35,7 +38,7 @@ class PlaceForm extends Component {
 
         <TouchableHighlight
           onPress={this.props.onCancel}
-          style={[STYLES.button, STYLES.buttonCancel]}
+          style={[STYLES.button, { backgroundColor: '#666' }]}
         >
           <Text style={STYLES.buttonText}>
             Cancel
@@ -46,29 +49,6 @@ class PlaceForm extends Component {
   }
 }
 
-const STYLES = StyleSheet.create({
-  button: {
-    height: 45,
-    alignSelf: 'stretch',
-    alignItems: 'center',
-    backgroundColor: '#3d3d3d',
-    justifyContent: 'center',
-    marginTop: 6
-  },
-  buttonCancel: {
-    backgroundColor: '#666',
-  },
-  buttonText: {
-    color: '#fafafa',
-    fontSize: 18,
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-
-  },
-  input: {}
-})
 
 PlaceForm.propTypes = {
   onAdd: PropTypes.func.isRequired,

@@ -4,6 +4,7 @@
 
 import React, {
   AppRegistry,
+  BackAndroid,
   Component,
   Navigator,
   StyleSheet,
@@ -16,7 +17,7 @@ import PlacesList from './components/places_list';
 import PlaceDetail from './components/place_detail';
 import PlaceForm from './components/place_form';
 import LoadingView from './components/loading_view';
-
+import { STYLES } from './base_styles';
 
 class KicknowMobile extends Component {
   constructor(props, context) {
@@ -26,6 +27,12 @@ class KicknowMobile extends Component {
       places: [],
       loaded: false
     }
+
+    // use the back button to navigate back
+    BackAndroid.addEventListener('hardwareBackPress', () => {
+      this.nav.pop();
+      return true;
+    });
   }
 
   componentDidMount() {
@@ -92,10 +99,10 @@ class KicknowMobile extends Component {
               onPlacePress={this.placeAction.bind(this)}
               places={this.state.places}
             />
-          <TouchableHighlight
-            onPress={this.addPlaceAction.bind(this)}
-            style={STYLES.button}
-          >
+            <TouchableHighlight
+              onPress={this.addPlaceAction.bind(this)}
+              style={STYLES.button}
+            >
               <Text style={STYLES.buttonText}>Add new Place</Text>
             </TouchableHighlight>
           </View>
@@ -106,31 +113,12 @@ class KicknowMobile extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{ name: '', index: 0 }}
+        initialRoute={{ name: 'place_detail', index: 0 }}
         ref={nav => this.nav = nav}
         renderScene={this.renderScene.bind(this)}
       />
     )
   }
 }
-
-const STYLES = StyleSheet.create({
-  container: {
-    backgroundColor: '#F5FCFF',
-    flex: 1,
-    justifyContent: 'flex-start',
-  },
-  button: {
-    alignItems: 'center',
-    backgroundColor: '#333',
-    height: 60,
-    justifyContent: 'center',
-    margin: 12
-  },
-  buttonText: {
-    color: '#fafafa',
-    fontSize: 18
-  }
-});
 
 AppRegistry.registerComponent('KicknowMobile', () => KicknowMobile);

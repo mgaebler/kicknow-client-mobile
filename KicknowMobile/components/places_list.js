@@ -9,13 +9,6 @@ import React, {
 import PlacesRow from './places_row';
 
 
-const styles = React.StyleSheet.create({
-  container: {
-    paddingTop: 40,
-  }
-});
-
-
 class PlacesList extends Component {
   constructor(props, context) {
     super(props, context);
@@ -44,13 +37,12 @@ class PlacesList extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderRow.bind(this)}
         />
       </View>
-
     );
   }
 }
