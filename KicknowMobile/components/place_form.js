@@ -1,5 +1,6 @@
 import React, {
   Component,
+  PropTypes,
   StyleSheet,
   Text,
   TextInput,
@@ -23,13 +24,17 @@ class PlaceForm extends Component {
 
         <TextInput style={STYLES.input} />
 
-        <TouchableHighlight style={STYLES.button}>
+        <TouchableHighlight
+          onPress={this.props.onAdd}
+          style={STYLES.button}
+        >
           <Text style={STYLES.buttonText}>
             Add
           </Text>
         </TouchableHighlight>
 
         <TouchableHighlight
+          onPress={this.props.onCancel}
           style={[STYLES.button, STYLES.buttonCancel]}
         >
           <Text style={STYLES.buttonText}>
@@ -64,5 +69,10 @@ const STYLES = StyleSheet.create({
   },
   input: {}
 })
+
+PlaceForm.propTypes = {
+  onAdd: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
+};
 
 export default PlaceForm

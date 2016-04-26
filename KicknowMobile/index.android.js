@@ -52,11 +52,21 @@ class KicknowMobile extends Component {
     this.nav.push({ name: 'place_detail' });
   }
 
+  onPlaceFormCancel() {
+    this.nav.pop();
+  }
+
+  onPlaceFormAdd(place) {
+    console.log('Place: ', place);
+    this.nav.pop();
+  }
+
   addPlaceAction() {
     this.nav.push({ name: 'place_form' });
   }
 
   renderScene(route, nav) {
+    // routing
     switch (route.name) {
       case 'place_detail':
         return (
@@ -64,7 +74,10 @@ class KicknowMobile extends Component {
         )
       case 'place_form':
         return (
-          <PlaceForm />
+          <PlaceForm
+            onAdd={this.onPlaceFormAdd.bind(this)}
+            onCancel={this.onPlaceFormCancel.bind(this)}
+          />
         )
       default:
         if(!this.state.loaded) {
@@ -93,7 +106,7 @@ class KicknowMobile extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{ name: 'place_form', index: 0 }}
+        initialRoute={{ name: '', index: 0 }}
         ref={nav => this.nav = nav}
         renderScene={this.renderScene.bind(this)}
       />
