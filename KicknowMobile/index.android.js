@@ -1,51 +1,123 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * KicknowMobile
  */
 
 import React, {
   AppRegistry,
   Component,
+  Navigator,
   StyleSheet,
+  TouchableHighlight,
   Text,
   View
 } from 'react-native';
 
+import PlacesList from './components/places_list';
+import PlaceDetail from './components/place_detail';
+import PlaceForm from './components/place_form';
+import LoadingView from './components/loading_view';
+
+
 class KicknowMobile extends Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      places: [],
+      loaded: false
+    }
+  }
+
+  componentDidMount() {
+    this.fetchPlaces();
+  }
+
+  fetchPlaces() {
+    const REQUEST_URL = 'https://private-f0df95-kicknow.apiary-mock.com/places';
+
+    fetch(REQUEST_URL, {
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+      method: 'POST',
+      mode: 'cors'
+    })
+      .then(response => response.json())
+      .then(places => this.setState({ places: places, loaded: true }))
+      .catch(error => console.log('There has been a problem with your fetch operation: ' + error.message))
+      .done();
+  }
+
+  placeAction() {
+    this.nav.push({ name: 'place_detail' });
+  }
+
+  addPlaceAction() {
+    this.nav.push({ name: 'place_form' });
+  }
+
+  renderScene(route, nav) {
+    switch (route.name) {
+      case 'place_detail':
+        return (
+          <PlaceDetail place={{name: 'hans otto'}} />
+        )
+      case 'place_form':
+        return (
+          <PlaceForm />
+        )
+      default:
+        if(!this.state.loaded) {
+          return (
+            <LoadingView />
+          );
+        }
+
+        return (
+          <View style={STYLES.container}>
+            <PlacesList
+              onPlacePress={this.placeAction.bind(this)}
+              places={this.state.places}
+            />
+          <TouchableHighlight
+            onPress={this.addPlaceAction.bind(this)}
+            style={STYLES.button}
+          >
+              <Text style={STYLES.buttonText}>Add new Place</Text>
+            </TouchableHighlight>
+          </View>
+        );
+    }
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
+      <Navigator
+        initialRoute={{ name: 'place_form', index: 0 }}
+        ref={nav => this.nav = nav}
+        renderScene={this.renderScene.bind(this)}
+      />
+    )
   }
 }
 
-const styles = StyleSheet.create({
+const STYLES = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
+    flex: 1,
+    justifyContent: 'flex-start',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#333',
+    height: 60,
+    justifyContent: 'center',
+    margin: 12
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  buttonText: {
+    color: '#fafafa',
+    fontSize: 18
+  }
 });
 
 AppRegistry.registerComponent('KicknowMobile', () => KicknowMobile);
