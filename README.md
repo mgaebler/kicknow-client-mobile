@@ -4,7 +4,7 @@ A mobile client for kicknow.
 
 ## Requirements
 
-(Homebrew)[http://brew.sh/] is the recommended way to install Watchman and Flow.
+[Homebrew](http://brew.sh/) is the recommended way to install Watchman and Flow.
 Install Node.js 4.0 or newer.
 - Install nvm with its setup instructions here. Then run nvm install node && nvm
   alias default node, which installs the latest version of Node.js and sets up
@@ -20,7 +20,8 @@ hit a node file watching bug.
 
 To write React Native apps for Android, you will need to install the Android SDK (and an Android emulator if you want to work on your app without having to use a physical device). See Android setup guide for instructions on how to set up your Android environment.
 
-### Quick Start
+
+## Quick Start
 Install the React Native command line tools:
 
 ``$ npm install -g react-native-cli``
