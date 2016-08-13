@@ -1,6 +1,8 @@
 import React, {
   Component,
   PropTypes,
+} from 'react';
+import {  
   StyleSheet,
   Text,
   TextInput,

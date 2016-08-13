@@ -1,22 +1,24 @@
 import React, {
   Component,
+  PropTypes,
+} from 'react';
+import {
   Image,
   MapView,
-  PropTypes,
   StyleSheet,
   ToolbarAndroid,
   Text,
-  View,
-} from 'react-native'
-
+  View
+} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { STYLES } from '../base_styles';
 import LoadingView from './loading_view';
 
 const SELF_STYLES = StyleSheet.create({
   map: {
-    height: 150,
-    width: 300,
-    margin: 10,
+    flex: 1,
+    flexDirection: 'row',
+    alignSelf: 'stretch',
     borderWidth: 1,
     borderColor: '#000000',
   }
@@ -59,7 +61,10 @@ class PlaceDetail extends Component {
       <Image
         key={key}
         source={{uri: photo.contentUrl}}
-        style={{width: 80, height: 80}}
+        style={{
+          flex: 1,
+          height: 80
+        }}
       />
     )
   }
@@ -72,35 +77,43 @@ class PlaceDetail extends Component {
     }
 
     return (
-
-    <View>
-      <ToolbarAndroid
-        logo={{uri: this.state.place.logo.contentUrl}}
-        style={{
-          backgroundColor: '#e9eaed',
-          height: 56,
-        }}
-        title={this.state.place.name}
-      />
-        <View style={{marginTop: 20}}>
-          {this.state.place.photos.map(this.renderImage)}
-        </View>
-        <View>
-          <Text>Some Actions here</Text>
-        </View>
-        <View style={STYLES.container}>
-          <Text>{this.state.place.name}</Text>
-          <Text>{this.state.place.address.streetAddress}</Text>
-          <Text>{this.state.place.address.addressLocality}</Text>
-        </View>
-        <View>
-          <MapView
-            region={{
-              latitude: 39.06,
-              longitude: -95.22,
-            }}
-            style={SELF_STYLES.map}
-          />
+      <View style={{
+        flex: 1,
+      }} >
+        <ToolbarAndroid
+          logo={{uri: this.state.place.logo.contentUrl}}
+          style={{
+            backgroundColor: '#e9eaed',
+            height: 56,
+          }}
+          title={this.state.place.name}
+        />
+        <View style={{
+          flex: 1,
+          flexDirection: 'column',
+          backgroundColor: 'blue',
+        }} >
+          <View style={{ flex: 1, flexDirection: 'row' }}>
+            {this.state.place.photos.map(this.renderImage)}
+          </View>
+          <View style={{flex: 2}}>
+            <Text>Some Actions here</Text>
+            <View style={STYLES.container}>
+              <Icon name="delete" size={30} color="#4F8EF7" />
+              <Text>{this.state.place.name}</Text>
+              <Text>{this.state.place.address.streetAddress}</Text>
+              <Text>{this.state.place.address.addressLocality}</Text>
+            </View>
+          </View>
+          <View style={{flex: 1}}>
+            <MapView
+              region={{
+                latitude: 39.06,
+                longitude: -95.22,
+              }}
+              style={SELF_STYLES.map}
+            />
+          </View>
         </View>
       </View>
     );

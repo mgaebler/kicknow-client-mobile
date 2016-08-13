@@ -1,7 +1,9 @@
 import React, {
-  Component,
-  ListView,
+  Component, 
   PropTypes,
+} from 'react';
+import {
+  ListView,
   Text,
   View
 } from 'react-native';

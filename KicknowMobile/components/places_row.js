@@ -1,12 +1,16 @@
 import React, {
   Component,
-  Image,
   PropTypes,
+} from 'react';
+
+import {
+  Image,
   StyleSheet,
   Text,
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
+
 
 class PlacesRow extends Component {
   render () {
