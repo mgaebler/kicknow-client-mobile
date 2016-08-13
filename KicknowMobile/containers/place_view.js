@@ -4,7 +4,6 @@ import React, {
 } from 'react';
 
 import {
-  Image,
   MapView,
   StyleSheet,
   Text,
@@ -12,8 +11,11 @@ import {
   View
 } from 'react-native';
 
+import ActionsBar from '../components/detail/actions_bar';
 import AddressField from '../components/detail/address_field';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import ImagesRow from '../components/detail/images_row';
+
 import { STYLES } from '../base_styles';
 import LoadingView from './loading_view';
 
@@ -60,19 +62,6 @@ class PlaceDetail extends Component {
       .done();
   }
 
-  renderImage(photo, key){
-    return (
-      <Image
-        key={key}
-        source={{uri: photo.contentUrl}}
-        style={{
-          flex: 1,
-          height: 80
-        }}
-      />
-    )
-  }
-
   render() {
     if(!this.state.loaded) {
       return (
@@ -98,16 +87,15 @@ class PlaceDetail extends Component {
           flexDirection: 'column',
           backgroundColor: 'blue',
         }} >
+
           {/* Images row */}
-          <View style={{ flex: 1, flexDirection: 'row' }}>
-            {this.state.place.photos.map(this.renderImage)}
+          <View>
+            <ImagesRow images={this.state.place.photos} />
           </View>
 
           {/* Actions row */}
-          <View style={{ flex: 1, flexDirection: 'row' }}>
-            <View style={{ flex: 1 }}><Text>Some</Text></View>
-            <View style={{ flex: 1 }}><Text>Some</Text></View>
-            <View style={{ flex: 1 }}><Text>Some</Text></View>
+          <View>
+            <ActionsBar />
           </View>
 
           {/* Place details row */}
