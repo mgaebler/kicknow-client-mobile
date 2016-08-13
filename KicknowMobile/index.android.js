@@ -13,10 +13,10 @@ import {
   View
 } from 'react-native';
 
-import PlacesList from './components/places_list';
-import PlaceDetail from './components/place_detail';
+import PlacesList from './containers/places_view';
+import PlaceDetail from './containers/place_view';
 import PlaceForm from './components/place_form';
-import LoadingView from './components/loading_view';
+import LoadingView from './containers/loading_view';
 import { STYLES } from './base_styles';
 
 class KicknowMobile extends Component {

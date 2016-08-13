@@ -2,17 +2,21 @@ import React, {
   Component,
   PropTypes,
 } from 'react';
+
 import {
   Image,
   MapView,
   StyleSheet,
-  ToolbarAndroid,
   Text,
+  ToolbarAndroid,
   View
 } from 'react-native';
+
+import AddressField from '../components/detail/address_field';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { STYLES } from '../base_styles';
 import LoadingView from './loading_view';
+
 
 const SELF_STYLES = StyleSheet.create({
   map: {
@@ -88,31 +92,27 @@ class PlaceDetail extends Component {
           }}
           title={this.state.place.name}
         />
+
         <View style={{
           flex: 1,
           flexDirection: 'column',
           backgroundColor: 'blue',
         }} >
+          {/* Images row */}
           <View style={{ flex: 1, flexDirection: 'row' }}>
             {this.state.place.photos.map(this.renderImage)}
           </View>
-          <View style={{flex: 2}}>
-            <Text>Some Actions here</Text>
-            <View style={STYLES.container}>
-              <Icon name="delete" size={30} color="#4F8EF7" />
-              <Text>{this.state.place.name}</Text>
-              <Text>{this.state.place.address.streetAddress}</Text>
-              <Text>{this.state.place.address.addressLocality}</Text>
-            </View>
+
+          {/* Actions row */}
+          <View style={{ flex: 1, flexDirection: 'row' }}>
+            <View style={{ flex: 1 }}><Text>Some</Text></View>
+            <View style={{ flex: 1 }}><Text>Some</Text></View>
+            <View style={{ flex: 1 }}><Text>Some</Text></View>
           </View>
-          <View style={{flex: 1}}>
-            <MapView
-              region={{
-                latitude: 39.06,
-                longitude: -95.22,
-              }}
-              style={SELF_STYLES.map}
-            />
+
+          {/* Place details row */}
+          <View style={{ flex: 1, flexDirection: 'row' }}>
+            <AddressField place={this.state.place} />
           </View>
         </View>
       </View>
