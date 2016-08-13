@@ -9,12 +9,10 @@ class ImagesRow extends Component {
   renderImage(photo, key){
     return (
       <Image
+        style={{flex: 1}}
         key={key}
+        resizeMode='cover'
         source={{uri: photo.contentUrl}}
-        style={{
-          flex: 1,
-          height: 80
-        }}
       />
     )
   }
