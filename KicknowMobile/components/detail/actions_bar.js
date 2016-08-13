@@ -12,7 +12,10 @@ class ActionsBar extends Component {
 
         <View style={{ flex: 1, alignSelf: 'center' }}><Text style={text_center}>Some</Text></View>
         <View style={{ flex: 1, alignSelf: 'center' }}><Text style={text_center}>Some</Text></View>
-        <View style={{ flex: 1, alignSelf: 'center' }}><Text style={text_center}>Some</Text></View>
+        <View style={{ flex: 1, alignSelf: 'center' }}>
+          <Icon style={text_center} name="favorite" size={32} />
+          <Text style={text_center}>Some</Text>
+        </View>
 
       </View>
     )
