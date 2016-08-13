@@ -89,19 +89,25 @@ class PlaceDetail extends Component {
         }} >
 
           {/* Images row */}
-          <View>
+          <View style={{
+            flex: 1,
+            backgroundColor: 'green' 
+          }}>
             <ImagesRow images={this.state.place.photos} />
           </View>
 
           {/* Actions row */}
-          <View>
+          <View style={{ flex: 1 }}>
             <ActionsBar />
           </View>
 
           {/* Place details row */}
-          <View style={{ flex: 1, flexDirection: 'row' }}>
-            <AddressField place={this.state.place} />
+          <View style={{ flex: 2 }}>
+            <View style={{ flex: 1, flexDirection: 'row' }}>
+              <AddressField place={this.state.place} />
+            </View>
           </View>
+
         </View>
       </View>
     );
