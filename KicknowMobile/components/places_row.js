@@ -54,8 +54,8 @@ const STYLES = StyleSheet.create({
     textAlign: 'center',
   },
   thumbnail: {
-    width: 53,
-    height: 81,
+    width: 64,
+    height: 64,
   },
 })
 
