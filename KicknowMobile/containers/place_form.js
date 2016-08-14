@@ -2,7 +2,7 @@ import React, {
   Component,
   PropTypes,
 } from 'react';
-import {  
+import {
   StyleSheet,
   Text,
   TextInput,
@@ -46,6 +46,7 @@ class PlaceForm extends Component {
             Cancel
           </Text>
         </TouchableHighlight>
+        
       </View>
     )
   }
