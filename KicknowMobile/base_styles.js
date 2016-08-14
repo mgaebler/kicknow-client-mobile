@@ -5,6 +5,7 @@ export const STYLES = StyleSheet.create({
     backgroundColor: '#F5FCFF',
     flex: 1,
     justifyContent: 'flex-start',
+    marginTop: 64,
     marginLeft: 6,
     marginRight: 6,
   },
