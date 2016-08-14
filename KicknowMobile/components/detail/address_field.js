@@ -9,7 +9,7 @@ class AddressField extends Component {
   render () {
     let place = this.props.place
     return (
-      <View style={STYLES.container}>
+      <View>
         <View style={{ flex: 1, flexDirection: 'row'}}>
           <View>
             <Icon name="room" size={30} color="#4F8EF7" />
@@ -23,7 +23,7 @@ class AddressField extends Component {
       </View>
     )
   }
-  
+
 }
 
 export default AddressField
