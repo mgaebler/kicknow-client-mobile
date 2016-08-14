@@ -7,7 +7,6 @@ import {
   MapView,
   StyleSheet,
   Text,
-  ToolbarAndroid,
   View
 } from 'react-native';
 
@@ -15,7 +14,6 @@ import ActionsBar from '../components/detail/actions_bar';
 import AddressField from '../components/detail/address_field';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import ImagesRow from '../components/detail/images_row';
-
 import { STYLES } from '../base_styles';
 import LoadingView from './loading_view';
 
@@ -73,14 +71,23 @@ class PlaceDetail extends Component {
       <View style={{
         flex: 1,
       }} >
-        <ToolbarAndroid
+        {/* <ToolbarAndroid
+          navIconName='chevron-left'
+          style={{
+            backgroundColor: '#e9eaed',
+            height: 56,
+          }}
+          title={'foobar'}
+        /> */}
+        {/* <ToolbarAndroid
           logo={{uri: this.state.place.logo.contentUrl}}
           style={{
             backgroundColor: '#e9eaed',
             height: 56,
           }}
           title={this.state.place.name}
-        />
+        /> */}
+
 
         <View style={{
           flex: 1,
@@ -91,7 +98,7 @@ class PlaceDetail extends Component {
           {/* Images row */}
           <View style={{
             flex: 1,
-            backgroundColor: 'green' 
+            backgroundColor: 'green'
           }}>
             <ImagesRow images={this.state.place.photos} />
           </View>

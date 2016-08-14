@@ -12,7 +12,7 @@ class AddressField extends Component {
       <View style={STYLES.container}>
         <View style={{ flex: 1, flexDirection: 'row'}}>
           <View>
-            <Icon name="delete" size={30} color="#4F8EF7" />
+            <Icon name="room" size={30} color="#4F8EF7" />
           </View>
           <View>
             <Text>{place.name}</Text>
@@ -23,6 +23,7 @@ class AddressField extends Component {
       </View>
     )
   }
+  
 }
 
 export default AddressField

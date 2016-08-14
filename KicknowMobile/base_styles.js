@@ -19,5 +19,10 @@ export const STYLES = StyleSheet.create({
   buttonText: {
     color: '#fafafa',
     fontSize: 18
+  },
+  navigationBarItem: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 });
