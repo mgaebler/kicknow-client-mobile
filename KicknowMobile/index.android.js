@@ -16,10 +16,11 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import PlacesList from './containers/places_view';
 import PlaceDetail from './containers/place_view';
-import PlaceForm from './components/place_form';
+import PlaceForm from './containers/place_form';
 import LoadingView from './containers/loading_view';
 import { STYLES } from './base_styles';
 import { ROUTE_MAPPER } from './navigation_config';
+
 
 class KicknowMobile extends Component {
   constructor(props, context) {
@@ -79,7 +80,9 @@ class KicknowMobile extends Component {
     switch (route.name) {
       case 'place_detail':
         return (
-          <PlaceDetail place={{name: 'hans otto'}} />
+          <View style={STYLES.container}>
+            <PlaceDetail place={{name: 'hans otto'}} />
+          </View>
         )
       case 'place_form':
         return (
@@ -115,15 +118,15 @@ class KicknowMobile extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{ name: 'place_detail', index: 0 }}
+        initialRoute={{ name: '', index: 0 }}
         ref={nav => this.nav = nav}
         renderScene={this.renderScene.bind(this)}
         navigationBar={
           <Navigator.NavigationBar
             routeMapper={ROUTE_MAPPER}
-             style={{
-               backgroundColor: 'gray',
-             }}
+            style={{
+              backgroundColor: 'gray',
+            }}
           />
         }
       />

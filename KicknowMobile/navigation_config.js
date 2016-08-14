@@ -4,10 +4,12 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native'
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { STYLES } from './base_styles'
 
+
 export const ROUTE_MAPPER = {
+
   LeftButton: (route, navigator, index, navState) => {
     if (route.index === 0) {
       return (null);
