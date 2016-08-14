@@ -13,6 +13,7 @@ import PlacesRow from '../components/places_row';
 
 
 class PlacesList extends Component {
+
   constructor(props, context) {
     super(props, context);
 
@@ -48,12 +49,13 @@ class PlacesList extends Component {
       </View>
     );
   }
+
 }
 
 PlacesList.propTypes = {
   onPlacePress: PropTypes.func,
   places: PropTypes
-    .arrayOf(PropTypes.objects).isRequired,
+    .arrayOf(PropTypes.object).isRequired,
 }
 
 export default PlacesList;
