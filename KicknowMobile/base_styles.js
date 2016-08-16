@@ -4,7 +4,7 @@ export const STYLES = StyleSheet.create({
   container: {
     backgroundColor: '#F5FCFF',
     flex: 1,
-    justifyContent: 'flex-start',
+    // justifyContent: 'flex-start',
     marginTop: 56, // navigator bar gap
   },
   button: {
@@ -13,7 +13,6 @@ export const STYLES = StyleSheet.create({
     backgroundColor: '#333',
     height: 60,
     justifyContent: 'center',
-    marginBottom: 6,
   },
   buttonText: {
     color: '#fafafa',

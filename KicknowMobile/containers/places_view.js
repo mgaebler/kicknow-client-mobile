@@ -41,12 +41,12 @@ class PlacesList extends Component {
 
   render() {
     return (
-      <View>
+      
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderRow.bind(this)}
         />
-      </View>
+
     );
   }
 

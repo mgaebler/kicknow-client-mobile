@@ -32,7 +32,8 @@ export const ROUTE_MAPPER = {
     return (
       <View style={STYLES.navigatorBarItem}>
         <Text style={{
-          fontWeight: 'bold'
+          fontWeight: 'bold',
+          fontSize: 24
         }}>Awesome Nav Bar</Text>
       </View>
     );
@@ -42,7 +43,9 @@ export const ROUTE_MAPPER = {
       <View style={[
         STYLES.navigatorBarItem,
       ]}>
-        <Text>Done</Text>
+        <TouchableHighlight onPress={() => navigator.pop()}>
+          <Icon name='settings' size={32}/>
+        </TouchableHighlight>
       </View>
     );
   },

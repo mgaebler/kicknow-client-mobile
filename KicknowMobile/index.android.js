@@ -19,7 +19,7 @@ import PlaceDetail from './containers/place_view';
 import PlaceForm from './containers/place_form';
 import LoadingView from './containers/loading_view';
 import { STYLES } from './base_styles';
-import { ROUTE_MAPPER } from './navigation_config';
+import { ROUTE_MAPPER } from './navigator_bar_config';
 
 
 class KicknowMobile extends Component {
@@ -104,12 +104,14 @@ class KicknowMobile extends Component {
               onPlacePress={this.placeAction.bind(this)}
               places={this.state.places}
             />
+
             <TouchableHighlight
               onPress={this.addPlaceAction.bind(this)}
               style={STYLES.button}
             >
               <Text style={STYLES.buttonText}>Add new Place</Text>
             </TouchableHighlight>
+
           </View>
         );
     }
