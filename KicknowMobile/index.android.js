@@ -120,7 +120,7 @@ class KicknowMobile extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{ name: '', index: 0 }}
+        initialRoute={{ name: 'place_detail', index: 0 }}
         ref={nav => this.nav = nav}
         renderScene={this.renderScene.bind(this)}
         navigationBar={

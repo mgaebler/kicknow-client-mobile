@@ -88,28 +88,26 @@ class PlaceDetail extends Component {
           title={this.state.place.name}
         /> */}
 
-
         <View style={{
           flex: 1,
           flexDirection: 'column',
-          backgroundColor: 'blue',
         }} >
 
           {/* Images row */}
           <View style={{
             flex: 1,
-            backgroundColor: 'green'
+            // backgroundColor: 'green'
           }}>
             <ImagesRow images={this.state.place.photos} />
           </View>
 
           {/* Actions row */}
-          <View style={{ flex: 1 }}>
+          <View style={[{ flex: 1 }, STYLES.rowBorderBottom]}>
             <ActionsBar />
           </View>
 
           {/* Place details row */}
-          <View style={{ flex: 2 }}>
+          <View style={[{ flex: 2, marginTop: 16 }, STYLES.contentInner]}>
             <View style={{ flex: 1, flexDirection: 'row' }}>
               <AddressField place={this.state.place} />
             </View>
