@@ -16,7 +16,7 @@ export const ROUTE_MAPPER = {
     } else {
       return (
 
-        <View style={STYLES.navigationBarItem}>
+        <View style={STYLES.navigatorBarItem}>
           <TouchableHighlight onPress={() => navigator.pop()}>
               <Icon
                 name='chevron-left'
@@ -30,7 +30,7 @@ export const ROUTE_MAPPER = {
   },
   Title: (route, navigator, index, navState) => {
     return (
-      <View style={STYLES.navigationBarItem}>
+      <View style={STYLES.navigatorBarItem}>
         <Text style={{
           fontWeight: 'bold'
         }}>Awesome Nav Bar</Text>
@@ -40,7 +40,7 @@ export const ROUTE_MAPPER = {
   RightButton: (route, navigator, index, navState) => {
     return (
       <View style={[
-        STYLES.navigationBarItem,
+        STYLES.navigatorBarItem,
       ]}>
         <Text>Done</Text>
       </View>

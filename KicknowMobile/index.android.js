@@ -124,9 +124,7 @@ class KicknowMobile extends Component {
         navigationBar={
           <Navigator.NavigationBar
             routeMapper={ROUTE_MAPPER}
-            style={{
-              backgroundColor: 'gray',
-            }}
+            style={STYLES.navigatorBar}
           />
         }
       />

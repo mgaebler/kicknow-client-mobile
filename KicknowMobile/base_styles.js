@@ -5,9 +5,7 @@ export const STYLES = StyleSheet.create({
     backgroundColor: '#F5FCFF',
     flex: 1,
     justifyContent: 'flex-start',
-    marginTop: 64,
-    marginLeft: 6,
-    marginRight: 6,
+    marginTop: 56, // navigator bar gap
   },
   button: {
     alignItems: 'center',
@@ -19,9 +17,13 @@ export const STYLES = StyleSheet.create({
   },
   buttonText: {
     color: '#fafafa',
-    fontSize: 18
+    fontSize: 18,
   },
-  navigationBarItem: {
+  navigatorBar: {
+    height: 56, // material design guideline
+    backgroundColor: 'green',
+  },
+  navigatorBarItem: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Image } from 'react-native'
 import { STYLES } from '../../base_styles';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
 class ImagesRow extends Component {

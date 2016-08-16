@@ -10,6 +10,7 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
 class PlacesRow extends Component {
@@ -17,13 +18,25 @@ class PlacesRow extends Component {
     console.log(this.props.place)
     return (
       <TouchableWithoutFeedback onPress={this.props.onRowClick}>
-        <View style={STYLES.container}>
+        <View
+          style={STYLES.listItem}
+        >
+          <View style={STYLES.aside}>
             <Image
+              resizeMode={Image.resizeMode.contain}
+              style={{width: 72, height: 72}}
               source={{uri: this.props.place.logo.contentUrl}}
-              style={STYLES.thumbnail}
             />
-          <View style={STYLES.rightContainer}>
+          </View>
+          <View style={{flex: 1}}>
             <Text style={STYLES.title}>{this.props.place.name}</Text>
+          </View>
+          <View>
+            <Icon
+              name="chevron-right"
+              size={32}
+              style={{alignSelf: 'center'}}
+            />
           </View>
         </View>
       </TouchableWithoutFeedback>
@@ -38,25 +51,19 @@ PlacesRow.propTypes = {
 }
 
 const STYLES = StyleSheet.create({
-  container: {
+  listItem: {
+    alignItems: 'center',
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
+    height: 72,
+    borderBottomWidth: 1,
+    borderBottomColor: 'lightgray'
   },
-  rightContainer: {
-    flex: 1
-  },
+  aside: {flex:0, width: 80, height: 72},
   title: {
     fontSize: 20,
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  thumbnail: {
-    width: 64,
-    height: 64,
-  },
+  }
 })
 
 export default PlacesRow
