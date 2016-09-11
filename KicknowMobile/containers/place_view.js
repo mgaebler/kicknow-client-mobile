@@ -72,22 +72,6 @@ class PlaceDetail extends Component {
       <View style={{
         flex: 1,
       }} >
-        {/* <ToolbarAndroid
-          navIconName='chevron-left'
-          style={{
-            backgroundColor: '#e9eaed',
-            height: 56,
-          }}
-          title={'foobar'}
-        /> */}
-        {/* <ToolbarAndroid
-          logo={{uri: this.state.place.logo.contentUrl}}
-          style={{
-            backgroundColor: '#e9eaed',
-            height: 56,
-          }}
-          title={this.state.place.name}
-        /> */}
 
         <View style={{
           flex: 1,
