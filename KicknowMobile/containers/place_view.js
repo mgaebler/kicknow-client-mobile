@@ -43,6 +43,7 @@ class PlaceDetail extends Component {
 
   fetchPlace() {
     console.log('fetching');
+    // Mock url
     const REQUEST_URL = 'https://private-f0df95-kicknow.apiary-mock.com/place';
 
     fetch(REQUEST_URL, {
@@ -55,7 +56,7 @@ class PlaceDetail extends Component {
       .then(response => response.json())
       .then(place => this.setState({ place: place, loaded: true }))
       .catch(error => {
-        console.log('There has been a problem with your fetch operation: ' + error.message);
+        console.log('There is a problem with your fetch operation: ' + error.message);
       })
       .done();
   }
