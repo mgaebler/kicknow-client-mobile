@@ -26,11 +26,6 @@ class KicknowMobile extends Component {
   constructor(props, context) {
     super(props, context);
 
-    this.state = {
-      places: [],
-      loaded: false
-    }
-
     // use the back button to navigate back
     BackAndroid.addEventListener('hardwareBackPress', () => {
       this.nav.pop();
@@ -38,28 +33,9 @@ class KicknowMobile extends Component {
     });
   }
 
-  componentDidMount() {
-    this.fetchPlaces();
-  }
-
-  fetchPlaces() {
-    const REQUEST_URL = 'https://private-f0df95-kicknow.apiary-mock.com/places';
-
-    fetch(REQUEST_URL, {
-      headers: new Headers({
-        "Content-Type": "application/json",
-      }),
-      method: 'POST',
-      mode: 'cors'
-    })
-      .then(response => response.json())
-      .then(places => this.setState({ places: places, loaded: true }))
-      .catch(error => console.log('There has been a problem with your fetch operation: ' + error.message))
-      .done();
-  }
-
-  placeAction() {
-    this.nav.push({ name: 'place_detail' });
+  placeAction(place) {
+    console.log(place)
+    this.nav.push({ name: 'place_detail', title: place.name });
   }
 
   onPlaceFormCancel() {
@@ -78,10 +54,19 @@ class KicknowMobile extends Component {
   renderScene(route, nav) {
     // routing
     switch (route.name) {
+      case 'places_list':
+        return (
+          <View style={STYLES.container}>
+            <PlacesList
+              onPlacePress={this.placeAction.bind(this)}
+            />
+          </View>
+        );
       case 'place_detail':
         return (
           <View style={STYLES.container}>
-            <PlaceDetail place={{name: 'hans otto'}} />
+            {/* // TODO: Use id prop to set the place id */}
+            <PlaceDetail place={{id: 'fake_id'}} />
           </View>
         )
       case 'place_form':
@@ -92,26 +77,11 @@ class KicknowMobile extends Component {
           />
         )
       default:
-        if(!this.state.loaded) {
-          return (
-            <LoadingView />
-          );
-        }
-
         return (
           <View style={STYLES.container}>
             <PlacesList
               onPlacePress={this.placeAction.bind(this)}
-              places={this.state.places}
             />
-
-            <TouchableHighlight
-              onPress={this.addPlaceAction.bind(this)}
-              style={STYLES.button}
-            >
-              <Text style={STYLES.buttonText}>Add new Place</Text>
-            </TouchableHighlight>
-
           </View>
         );
     }
@@ -120,7 +90,7 @@ class KicknowMobile extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{ name: 'place_detail', index: 0 }}
+        initialRoute={{ name: 'place_', title:'foo', index: 0 }}
         ref={nav => this.nav = nav}
         renderScene={this.renderScene.bind(this)}
         navigationBar={
