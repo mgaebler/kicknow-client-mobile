@@ -34,7 +34,10 @@ export const ROUTE_MAPPER = {
         <Text style={{
           fontWeight: 'bold',
           fontSize: 24
-        }}>Awesome Nav Bar</Text>
+        }}>
+          {route.title}
+        </Text>
+        {/* {console.log(route, navigator, index, navState)} */}
       </View>
     );
   },

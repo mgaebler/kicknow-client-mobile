@@ -14,10 +14,14 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
 class PlacesRow extends Component {
+  rowItemPressAction () {
+    this.props.onRowClick(this.props.place)
+  }
+
   render () {
-    console.log(this.props.place)
+    // console.log(this.props.place)
     return (
-      <TouchableWithoutFeedback onPress={this.props.onRowClick}>
+      <TouchableWithoutFeedback onPress={this.rowItemPressAction.bind(this)}>
         <View
           style={STYLES.listItem}
         >
