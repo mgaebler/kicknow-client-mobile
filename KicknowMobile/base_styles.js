@@ -6,6 +6,7 @@ export const STYLES = StyleSheet.create({
     flex: 1,
     // justifyContent: 'flex-start',
     marginTop: 56, // navigator bar gap
+    backgroundColor: '#fff',
   },
   button: {
     alignItems: 'center',
