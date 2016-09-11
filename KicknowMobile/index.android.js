@@ -35,7 +35,11 @@ class KicknowMobile extends Component {
 
   placeAction(place) {
     console.log(place)
-    this.nav.push({ name: 'place_detail', title: place.name });
+    this.nav.push({
+      name: 'place_detail',
+      title: place.name,
+      id: place['@id']
+    });
   }
 
   onPlaceFormCancel() {
@@ -53,6 +57,7 @@ class KicknowMobile extends Component {
 
   renderScene(route, nav) {
     // routing
+    // console.log(route, nav)
     switch (route.name) {
       case 'places_list':
         return (
@@ -65,8 +70,7 @@ class KicknowMobile extends Component {
       case 'place_detail':
         return (
           <View style={STYLES.container}>
-            {/* // TODO: Use id prop to set the place id */}
-            <PlaceDetail place={{id: 'fake_id'}} />
+            <PlaceDetail place_id={route.id} />
           </View>
         )
       case 'place_form':

@@ -51,6 +51,7 @@ class PlaceDetail extends Component {
         "Content-Type": "application/json",
       }),
       method: 'POST',
+      body: JSON.stringify({place_id: this.props.place_id}),
       mode: 'cors'
     })
       .then(response => response.json())
@@ -105,7 +106,8 @@ class PlaceDetail extends Component {
 }
 
 PlaceDetail.propTypes = {
-  place: PropTypes.object.isRequired
+  // place: PropTypes.object.isRequired
+  place_id: PropTypes.string.isRequired
 }
 
 export default PlaceDetail
