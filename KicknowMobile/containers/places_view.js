@@ -13,6 +13,10 @@ import PlacesRow from '../components/places_row';
 import LoadingView from './loading_view';
 
 
+/**
+  * @TODO: Places list must be filterable
+  * Add a search box
+  */
 class PlacesList extends Component {
 
   constructor(props, context) {
@@ -68,7 +72,7 @@ class PlacesList extends Component {
   render() {
     if(this.state.loaded){
       return (
-        
+
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderRow.bind(this)}

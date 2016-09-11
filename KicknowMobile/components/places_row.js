@@ -12,7 +12,9 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-
+/**
+ * @TODO The list entries should also indecate distance. 
+ */
 class PlacesRow extends Component {
   rowItemPressAction () {
     this.props.onRowClick(this.props.place)
