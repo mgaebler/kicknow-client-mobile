@@ -1,8 +1,10 @@
 import { StyleSheet } from 'react-native';
 
+// On design level I lean very much on material design. If you like to change
+// something follow googles material design guidelines.
+// https://material.google.com/
 export const STYLES = StyleSheet.create({
   container: {
-    // backgroundColor: '#F5FCFF',
     flex: 1,
     // justifyContent: 'flex-start',
     marginTop: 56, // navigator bar gap
@@ -21,7 +23,7 @@ export const STYLES = StyleSheet.create({
   },
   navigatorBar: {
     height: 56, // material design guideline
-    backgroundColor: 'green',
+    backgroundColor: '#03A9F4',
   },
   navigatorBarItem: {
     flex: 1,
