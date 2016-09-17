@@ -13,7 +13,7 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 /**
- * @TODO The list entries should also indecate distance. 
+ * @TODO The list entries should also indecate distance.
  */
 class PlacesRow extends Component {
   rowItemPressAction () {
@@ -27,11 +27,11 @@ class PlacesRow extends Component {
         <View
           style={STYLES.listItem}
         >
-          <View style={STYLES.aside}>
+          <View>
             <Image
               resizeMode={Image.resizeMode.contain}
-              style={{width: 72, height: 72}}
               source={{uri: this.props.place.logo.contentUrl}}
+              style={STYLES.listImage}
             />
           </View>
           <View style={{flex: 1}}>
@@ -57,6 +57,13 @@ PlacesRow.propTypes = {
 }
 
 const STYLES = StyleSheet.create({
+  listImage : {
+    marginLeft: 6,
+    marginRight: 6,
+    width: 64,
+    height: 64,
+    borderRadius: 999
+  },
   listItem: {
     alignItems: 'center',
     flex: 1,
@@ -66,7 +73,6 @@ const STYLES = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'lightgray'
   },
-  aside: {flex:0, width: 80, height: 72},
   title: {
     fontSize: 20,
   }
