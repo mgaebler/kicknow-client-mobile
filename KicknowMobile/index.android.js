@@ -19,7 +19,7 @@ import PlaceDetail from './containers/place_view';
 import PlaceForm from './containers/place_form';
 import LoadingView from './containers/loading_view';
 import { STYLES } from './base_styles';
-import { ROUTE_MAPPER } from './navigator_bar_config';
+import { ROUTE_MAPPER } from './containers/navigation_bar';
 
 
 class KicknowMobile extends Component {
@@ -38,6 +38,7 @@ class KicknowMobile extends Component {
     this.nav.push({
       name: 'place_detail',
       title: place.name,
+      image: place.logo.contentUrl,
       id: place['@id']
     });
   }
@@ -94,7 +95,7 @@ class KicknowMobile extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{ name: 'place_', title:'foo', index: 0 }}
+        initialRoute={{ name: 'places_list', title:'foo', index: 0 }}
         ref={nav => this.nav = nav}
         renderScene={this.renderScene.bind(this)}
         navigationBar={
