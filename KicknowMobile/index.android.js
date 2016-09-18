@@ -14,8 +14,8 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import PlacesList from './containers/places_view';
-import PlaceDetail from './containers/place_view';
+import PlacesList from './containers/places_list';
+import PlaceDetail from './containers/place_detail';
 import PlaceForm from './containers/place_form';
 import LoadingView from './containers/loading_view';
 import { STYLES } from './base_styles';
