@@ -106,7 +106,7 @@ class PlaceDetail extends Component {
 
 PlaceDetail.propTypes = {
   // place: PropTypes.object.isRequired
-  place_id: PropTypes.string.isRequired
+  placeId: PropTypes.string.isRequired
 }
 
 export default PlaceDetail
