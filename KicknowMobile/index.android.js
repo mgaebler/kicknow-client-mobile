@@ -71,7 +71,7 @@ class KicknowMobile extends Component {
       case 'place_detail':
         return (
           <View style={STYLES.container}>
-            <PlaceDetail place_id={route.id} />
+            <PlaceDetail placeId={route.id} />
           </View>
         )
       case 'place_form':
@@ -95,7 +95,7 @@ class KicknowMobile extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{ name: 'places_list', title:'foo', index: 0 }}
+        initialRoute={{ name: 'places_list', title:'Kicknow', index: 0 }}
         ref={nav => this.nav = nav}
         renderScene={this.renderScene.bind(this)}
         navigationBar={

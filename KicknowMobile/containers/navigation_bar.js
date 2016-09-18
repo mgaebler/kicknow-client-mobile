@@ -67,12 +67,7 @@ export const ROUTE_MAPPER = {
           <View style={[
             STYLES.navigatorBarItem,
           ]}>
-            <TouchableHighlight onPress={() => navigator.pop()}>
-              <Icon
-                name='filter-list'
-                size={32}
-              />
-            </TouchableHighlight>
+            
           </View>
         );
         break;

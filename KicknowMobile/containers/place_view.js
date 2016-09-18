@@ -44,14 +44,13 @@ class PlaceDetail extends Component {
   fetchPlace() {
     console.log('fetching');
     // Mock url
-    const REQUEST_URL = 'https://private-f0df95-kicknow.apiary-mock.com/place';
+    const REQUEST_URL = `https://private-f0df95-kicknow.apiary-mock.com/place/${this.props.placeId}`;
 
     fetch(REQUEST_URL, {
       headers: new Headers({
         "Content-Type": "application/json",
       }),
-      method: 'POST',
-      body: JSON.stringify({place_id: this.props.place_id}),
+      method: 'GET',
       mode: 'cors'
     })
       .then(response => response.json())
